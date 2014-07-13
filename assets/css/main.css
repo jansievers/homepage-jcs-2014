@@ -1,0 +1,139 @@
+/* http://www.w3schools.com/html/html_colornames.asp */
+
+html, body {
+    height: 100%;
+}
+
+body {
+	background: #333;
+	color: #fff;
+	font-family: 'Dosis', 'Arial', sans-serif;
+	font-size: 18px;
+	margin: 0;
+	padding: 0;
+
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+.clearfix {
+    display: inline-block;
+}
+
+h1 {
+	font-size: 50px;
+	font-weight: 200;
+	margin: 0;
+}
+
+h2 {
+	font-size: 18px;
+	font-weight: 700;
+	margin: 0 0 10px 0;
+}
+h2:before {
+	content: "_";
+}
+
+a {
+	color: yellow;
+	border: none;
+	outline: none;
+}
+a:hover {
+	text-decoration: none;
+}
+
+
+main {
+	font-weight: 500;
+	margin-left: 180px;
+	padding: 20px;
+	width: 3671px;
+}
+
+nav {
+	background: black;
+	height: 100%;
+	position: fixed;
+	width: 180px;
+
+}
+nav a {
+	background: #333;
+	color: #aaa;
+	display: block;
+	font-size: 43px;
+	font-weight: 200;
+	height: 120px;
+	line-height: 33px;
+	margin: 20px;
+	overflow: hidden;
+	padding-top: 20px;
+	text-align: right;
+	text-decoration: none;
+	text-indent: -5px;
+	text-shadow: 1px 1px 1px #000;
+	vertical-align: middle;
+	width: 140px;
+
+	transition: all .8s;
+}
+nav a span {
+	display: block;
+	direction: rtl;
+}
+
+nav a:hover {
+	color:  white;
+}
+
+nav a:nth-child(1):hover {
+	background-color: DarkOrange;
+}
+nav a:nth-child(2):hover {
+	background-color: #8bab00;
+}
+nav a:nth-child(3):hover {
+	background-color: MediumVioletRed;
+}
+nav a:nth-child(4):hover {
+	background-color: Teal;
+}
+
+
+
+section {
+	color: DarkSlateGray;
+	width: 700px;
+	height: 700px;
+	overflow: hidden;
+	margin-right: 40px;
+	float: left;
+	padding: 20px;
+}
+
+section.active {
+	color: white;
+	text-shadow: 1px 1px 1px #000;
+	background-image: url('http://lorempixel.com/1000/1000/abstract/'); 
+}
+
+
+section:nth-child(1) {
+	background-color: DarkOrange;
+}
+section:nth-child(2) {
+	background-color: #8bab00;
+}
+section:nth-child(3) {
+	background-color: MediumVioletRed;
+}
+section:nth-child(4) {
+	background-color: Teal;
+}
