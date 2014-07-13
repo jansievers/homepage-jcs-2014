@@ -27,8 +27,8 @@
 			</a>
 		</nav>
 
-		<main id="about" class="clearfix">
-			<section>
+		<main class="clearfix">
+			<section id="about">
 				<h1>jan-christoph sievers</h1>
 			 	<h2>senior frontend developer</h2>
 			  	<br>
@@ -60,15 +60,33 @@
 			</section>
 
 		</main>
+		
+		<!--
 		<nav class="nav-right">
 			<a href="javascript: void(0);" data-target="about">
 				<span><< back</span>
 			</a>
 		</nav>
-		<script>
+		-->
 
-		</script>		
-		<script src='js/libs/jquery.js'></script>
-		<script src='js/main.js'></script>
+		<!-- JS include -->
+		<script>
+		    // Switch between develoment and production
+		    (function (d) {
+		    	var domain = d.location.href;
+		    	if (domain.indexOf('jan-christoph-sievers.de') > -1) {
+		    		// Production
+		    		document.write(
+		    			'<script src="js/build/production.min.js"><\/script>'
+		    		);
+		    	} else {
+		    		// Develoment
+		    		document.write(
+		    			'<script src="js/libs/jquery.js"><\/script>' +
+		    			'<script src="js/main.js"><\/script>'
+		    		);
+		    	}
+		    })(document);
+		</script>	
 	</body>
 </html>
