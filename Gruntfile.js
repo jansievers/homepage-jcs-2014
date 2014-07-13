@@ -34,6 +34,13 @@ module.exports = function(grunt) {
                 options: {
                     spawn: false
                 }
+            },
+            script: {
+                files: ['Gruntfile.js', 'js/main.js'],
+                tasks: ['jshint'],
+                options: {
+                    spawn: false
+                }
             }
         },
         validation: {

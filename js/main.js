@@ -1,8 +1,5 @@
 var jcsHomepage = {
-
-
-	main: function() {
-
+	navigation: function() {
 		$('nav').find('a').on('click', function() {
 			var mainSection = $('main'),
 				targetPos,
@@ -25,7 +22,27 @@ var jcsHomepage = {
 			// Set section active
 			mainSection.find('#' + targetLink).addClass('active');
 		});
+	},
+	showContent: function(language) {
+		console.log('Show content in ' + language + '.');
+
+		$.each($('main section'), function() {
+			var that = $(this); 
+			if (that.attr('id') === 'about') {
+				console.log('about section');
+				that.find('h1')
+					.text('Jan-Christoph Sievers');
+				that.find('h2')
+					.text('Senior Frontend Developer');
+				that.find('article')
+					.html('<p>sadsdadas</p><p>dsdfdfsdf fss f</p>');
+			}
+		});
 	}
 };
 
-jcsHomepage.main();
+
+$(document).ready(function() {
+	jcsHomepage.showContent('english');	
+	jcsHomepage.navigation();
+});
