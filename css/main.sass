@@ -71,6 +71,7 @@ nav
   background: black
   height: 100%
   width: 180px
+  z-index: 3
   a
     background: $color-back
     color: #aaa
@@ -116,16 +117,30 @@ nav
 
 section
   color: DarkSlateGray
-  width: 700px
-  height: 710px
+  width: 740px
+  height: 740px
   overflow: hidden
   margin-right: 40px
   float: left
-  padding: 10px 20px 20px 20px
+  position: relative
+  article, img
+    position: absolute
+    top: 0px
+    left: 0px
+  img
+    z-index: 1
+  article
+    width: 92%
+    height: 96%
+    padding: 2% 4%
+    z-index: 2
+  .full-bg-image
+    display: none
   &.active
     color: white!important
     text-shadow: 1px 1px 1px black
-    //background-image: url('http://lorempixel.com/1000/1000/abstract/')
+    .full-bg-image
+      display: block
   &:nth-child(1)
     color: $color-front-section-1
     background-color: $color-back-section-1

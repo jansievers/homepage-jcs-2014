@@ -34,8 +34,7 @@ var jcsHomepage = {
 					.text('Jan-Christoph Sievers');
 				that.find('h2')
 					.text('Senior Frontend Developer');
-				that.find('article')
-					.html('<p>sadsdadas</p><p>dsdfdfsdf fss f</p>');
+			
 			}
 		});
 	}

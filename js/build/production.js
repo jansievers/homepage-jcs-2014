@@ -9225,6 +9225,7 @@ var jcsHomepage = {
 					.text('Jan-Christoph Sievers');
 				that.find('h2')
 					.text('Senior Frontend Developer');
+			
 			}
 		});
 	}
