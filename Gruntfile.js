@@ -40,15 +40,21 @@ module.exports = function(grunt) {
             files: {
                 src: ['*.html']
             }
+        },
+        jshint: {
+            all: ['Gruntfile.js', 'js/main.js']
         }
     });
+
     // 3. Where we tell Grunt we plan to use this plug-in.
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-html-validation');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['validation', 'sass', 'concat', 'uglify']);
+    grunt.registerTask('default', ['validation', 'jshint', 'sass', 'concat', 'uglify']);
+
     grunt.registerTask('dev', ['watch']);
 };

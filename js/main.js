@@ -2,6 +2,7 @@ var jcsHomepage = {
 
 
 	main: function() {
+
 		$('nav').find('a').on('click', function() {
 			var mainSection = $('main'),
 				targetPos,
@@ -23,10 +24,8 @@ var jcsHomepage = {
 			mainSection.find('.active').removeClass('active');
 			// Set section active
 			mainSection.find('#' + targetLink).addClass('active');
-		})
+		});
 	}
-
-
-}
+};
 
 jcsHomepage.main();
