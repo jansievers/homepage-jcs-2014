@@ -79,7 +79,7 @@ nav
     text-align: right
     text-decoration: none
     text-indent: -5px
-    text-shadow: 1px 1px 1px b
+    text-shadow: 1px 1px 1px black
     vertical-align: middle
     width: 140px
     transition: all .8s
@@ -89,13 +89,13 @@ nav
     &:hover
       color: white
     &:nth-child(1):hover
-      background-color: $color-section-1
+      background-color: $color-back-section-1
     &:nth-child(2):hover
-      background-color: $color-section-2
+      background-color: $color-back-section-2
     &:nth-child(3):hover
-      background-color: $color-section-3
+      background-color: $color-back-section-3
     &:nth-child(4):hover
-      background-color: $color-section-4
+      background-color: $color-back-section-4
 
 .nav-right
   position: block
@@ -116,14 +116,18 @@ section
   float: left
   padding: 10px 20px 20px 20px
   &.active
-    color: white
+    color: white!important
     text-shadow: 1px 1px 1px black
     background-image: url('http://lorempixel.com/1000/1000/abstract/')
   &:nth-child(1)
-    background-color: $color-section-1
+    color: $color-front-section-1
+    background-color: $color-back-section-1
   &:nth-child(2)
-    background-color: $color-section-2
+    color: $color-front-section-2
+    background-color: $color-back-section-2
   &:nth-child(3)
-    background-color: $color-section-3
+    color: $color-front-section-3
+    background-color: $color-back-section-3
   &:nth-child(4)
-    background-color: $color-section-4
+    color: $color-front-section-4
+    background-color: $color-back-section-4

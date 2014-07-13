@@ -3,7 +3,8 @@ var jcsHomepage = {
 
 	main: function() {
 		$('nav').find('a').on('click', function() {
-			var targetPos,
+			var mainSection = $('main'),
+				targetPos,
 				targetLink = $(this).attr('data-target');
 
 			// Scroll to position
@@ -18,8 +19,10 @@ var jcsHomepage = {
 			}
 			window.scrollTo(targetPos, 0);
 
-			// Active section
-			$('main').find('')
+			// Reset active sections
+			mainSection.find('.active').removeClass('active');
+			// Set section active
+			mainSection.find('#' + targetLink).addClass('active');
 		})
 	}
 
