@@ -12,6 +12,13 @@ module.exports = function(grunt) {
                 }
             } 
         },
+        haml: {
+            dist: {
+                files: {
+                    'index.html': 'index.haml'
+                }
+            }
+        },
         concat: {   
             dist: {
                 src: [
@@ -28,6 +35,13 @@ module.exports = function(grunt) {
             }
         },
         watch: {
+            haml: {
+                files: ['index.haml'],
+                tasks: ['haml'],
+                options: {
+                    spawn: false
+                }
+            },
             css: {
                 files: ['css/*.sass'],
                 tasks: ['sass'],
@@ -54,6 +68,7 @@ module.exports = function(grunt) {
     });
 
     // 3. Where we tell Grunt we plan to use this plug-in.
+    grunt.loadNpmTasks('grunt-contrib-haml');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -61,7 +76,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-html-validation');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['validation', 'jshint', 'sass', 'concat', 'uglify']);
-
+    grunt.registerTask('default', ['haml', 'validation', 'jshint', 'sass', 'concat', 'uglify']);
+ 
     grunt.registerTask('dev', ['watch']);
 };

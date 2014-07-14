@@ -1,0 +1,77 @@
+// Edit only this markup file! // index.html will be automatically generated!
+!!!
+%html{lang: "en"}
+  %head
+    %title Homepage of Jan-Christoph Sievers - Senior Frontend Developer - Hamburg - Germany
+    %meta{content: "text/html; charset=US-ASCII", "http-equiv" => "content-type"}/
+    %link{href: "http://fonts.googleapis.com/css?family=Dosis:500,700,200", rel: "stylesheet", type: "text/css"}/
+    %link{href: "css/build/main.css", media: "screen, projection", rel: "stylesheet", type: "text/css"}/
+  / https://www.codefellows.org/blog/complete-list-of-javascript-tools
+  
+  %body
+    
+    %nav.nav-left
+      %a{"data-target" => "about", href: "javascript: void(0);"}
+        %span About
+      %a{"data-target" => "work-experience", href: "javascript: void(0);"}
+        %span Work
+        %span Experience
+      %a{"data-target" => "private", href: "javascript: void(0);"}
+        %span
+          Private
+          %span
+      %a{"data-target" => "contact", href: "javascript: void(0);"}
+        %span
+          Contact
+          %span
+    
+    %main.clearfix
+      %section#about.active
+        %article
+          %h1
+          %h2
+          %br/
+        %img.full-bg-image{alt: "Image about", height: "100%", src: "http://lorempixel.com/1000/1000/abstract?1", width: "100%"}/
+      %section#work-experience
+        %article
+          %h1 Work Experience 444
+          %h2 ads adadadsasd
+          %br/
+          %p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+        %img.full-bg-image{alt: "Image work experience", height: "100%", src: "http://lorempixel.com/1000/1000/abstract?2", width: "100%"}/
+      %section#private
+        %article
+          %h1 Private Stuff
+          %br/
+          %p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+        %img.full-bg-image{alt: "Image private", height: "100%", src: "http://lorempixel.com/1000/1000/abstract?3", width: "100%"}/
+      %section#contact
+        %article
+          %h1 Contact
+          %br/
+          %p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+        %img.full-bg-image{alt: "Image contact", height: "100%", src: "http://lorempixel.com/1000/1000/abstract?4", width: "100%"}/
+    /
+      <nav class="nav-right">
+      <a href="javascript: void(0);" data-target="about">
+      <span><< back</span>
+      </a>
+      </nav>
+    / JS include
+    :javascript
+      // Switch between develoment and production
+      (function (d) {
+      	var domain = d.location.href;
+      	if (domain.indexOf('jan-christoph-sievers.de') > -1) {
+      		// Production
+      		document.write(
+      			'<script src="js/build/production.min.js"><\/script>'
+      		);
+      	} else {
+      		// Develoment
+      		document.write(
+      			'<script src="js/libs/jquery.js"><\/script>' +
+      			'<script src="js/main.js"><\/script>'
+      		);
+      	}
+      })(document);

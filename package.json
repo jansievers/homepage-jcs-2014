@@ -11,6 +11,7 @@
     "install": "~0.1.7",
     "grunt-html-validation": "~0.1.18",
     "npm": "~1.4.20",
-    "grunt-contrib-jshint": "~0.10.0"
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-haml": "~0.2.0"
   }
 }
