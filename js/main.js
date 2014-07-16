@@ -4,13 +4,12 @@ var jcsHomepage = {
 			var mainSection = $('main'),
 				targetPos,
 				targetLink = $(this).attr('data-target');
-
 			// Scroll to position
 			if (targetLink === 'about') {
 				targetPos = 0;
-			} else if (targetLink === 'work-experience') {
+			} else if (targetLink === 'work') {
 				targetPos = 780;
-			} else if (targetLink === 'private') {
+			} else if (targetLink === 'personal') {
 				targetPos = 1560;
 			} else if (targetLink === 'contact') {
 				targetPos = 2340;
@@ -25,23 +24,21 @@ var jcsHomepage = {
 	},
 	showContent: function(language) {
 		console.log('Show content in ' + language + '.');
-
-		$.each($('main section'), function() {
-			var that = $(this); 
-			if (that.attr('id') === 'about') {
-				console.log('about section');
-				that.find('h1')
-					.text('Jan-Christoph Sievers');
-				that.find('h2')
-					.text('Senior Frontend Developer');
-			
-			}
+		// Loop to section data ...
+		var contentSection;
+		$.each(sectionData[language], function(index, value) {
+			// Get id for section select
+			contentSection = $('#' + index);
+			// Get an fill content sections elements
+			$.each(value, function(index, value) {
+				// Find content class and add content
+				contentSection.find('.' + index).html(value); 
+			});
 		});
 	}
 };
 
-
 $(document).ready(function() {
-	jcsHomepage.showContent('english');	
+	jcsHomepage.showContent('de');	// en = English // de = German
 	jcsHomepage.navigation();
 });

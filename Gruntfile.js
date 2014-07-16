@@ -19,10 +19,11 @@ module.exports = function(grunt) {
                 }
             }
         },
-        concat: {   
+        concat: {
             dist: {
                 src: [
                     'js/libs/*.js', // All JS in the libs folder
+                    'js/section-data.js',
                     'js/main.js'  // This specific file
                 ],
                 dest: 'js/build/production.js',
@@ -50,7 +51,7 @@ module.exports = function(grunt) {
                 }
             },
             script: {
-                files: ['Gruntfile.js', 'js/main.js'],
+                files: ['Gruntfile.js', 'js/section-data.js', 'js/main.js'],
                 tasks: ['jshint'],
                 options: {
                     spawn: false
@@ -63,7 +64,7 @@ module.exports = function(grunt) {
             }
         },
         jshint: {
-            all: ['Gruntfile.js', 'js/main.js']
+            all: ['Gruntfile.js', 'js/section-data.js', 'js/main.js']
         }
     });
 

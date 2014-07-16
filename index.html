@@ -1,4 +1,3 @@
-<!-- / Edit only this markup file! // index.html will be automatically generated! -->
 <!DOCTYPE html>
 <html lang='en'>
   <head>
@@ -8,16 +7,20 @@
     <link href='css/build/main.css' media='screen, projection' rel='stylesheet' type='text/css'>
   </head>
   <!-- https://www.codefellows.org/blog/complete-list-of-javascript-tools -->
+  <!-- / Edit only this markup file! // index.html will be automatically generated! -->
+  <!-- Todo: -->
+  <!-- * Content dymanisch aus JS -->
+  <!-- * Animation / scrolling -->
   <body>
     <nav class='nav-left'>
       <a data-target='about' href='javascript: void(0);'>
         <span>About</span>
       </a>
-      <a data-target='work-experience' href='javascript: void(0);'>
+      <a data-target='work' href='javascript: void(0);'>
         <span>Work</span>
         <span>Experience</span>
       </a>
-      <a data-target='private' href='javascript: void(0);'>
+      <a data-target='personal' href='javascript: void(0);'>
         <span>
           Private
           <span></span>
@@ -33,34 +36,38 @@
     <main class='clearfix'>
       <section class='active' id='about'>
         <article>
-          <h1></h1>
-          <h2></h2>
-          <br>
+          <h1 class='headline'></h1>
+          <h2 class='subhead'></h2>
+          <div class='content'></div>
         </article>
         <img alt='Image about' class='full-bg-image' height='100%' src='http://lorempixel.com/1000/1000/abstract?1' width='100%'>
       </section>
-      <section id='work-experience'>
+      <section id='work'>
         <article>
-          <h1>Work Experience 444</h1>
-          <h2>ads adadadsasd</h2>
-          <br>
-          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero</p>
+          <h1 class='headline'></h1>
+          <h2 class='subhead'></h2>
+          <div class='content'></div>
         </article>
         <img alt='Image work experience' class='full-bg-image' height='100%' src='http://lorempixel.com/1000/1000/abstract?2' width='100%'>
       </section>
-      <section id='private'>
+      <section id='personal'>
         <article>
-          <h1>Private Stuff</h1>
-          <br>
-          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero</p>
+          <h1 class='headline'></h1>
+          <h2 class='subhead'></h2>
+          <div class='content'></div>
         </article>
         <img alt='Image private' class='full-bg-image' height='100%' src='http://lorempixel.com/1000/1000/abstract?3' width='100%'>
       </section>
       <section id='contact'>
         <article>
-          <h1>Contact</h1>
-          <br>
-          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero</p>
+          <h1 class='headline'></h1>
+          <h2 class='subhead'></h2>
+          <div class='content'></div>
+          <form>
+            <label class='message'></label>
+            <br>
+            <textarea></textarea>
+          </form>
         </article>
         <img alt='Image contact' class='full-bg-image' height='100%' src='http://lorempixel.com/1000/1000/abstract?4' width='100%'>
       </section>
@@ -85,7 +92,8 @@
       	} else {
       		// Develoment
       		document.write(
-      			'<script src="js/libs/jquery.js"><\/script>' +
+            '<script src="js/libs/jquery.js"><\/script>' +
+      			'<script src="js/section-data.js"><\/script>' +
       			'<script src="js/main.js"><\/script>'
       		);
       	}

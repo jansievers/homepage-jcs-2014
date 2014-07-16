@@ -1,4 +1,3 @@
-// Edit only this markup file! // index.html will be automatically generated!
 !!!
 %html{lang: "en"}
   %head
@@ -8,15 +7,21 @@
     %link{href: "css/build/main.css", media: "screen, projection", rel: "stylesheet", type: "text/css"}/
   / https://www.codefellows.org/blog/complete-list-of-javascript-tools
   
+  // Edit only this markup file! // index.html will be automatically generated!
+
+
+  / Todo:
+  / * Content dymanisch aus JS
+  / * Animation / scrolling
+
   %body
-    
     %nav.nav-left
       %a{"data-target" => "about", href: "javascript: void(0);"}
         %span About
-      %a{"data-target" => "work-experience", href: "javascript: void(0);"}
+      %a{"data-target" => "work", href: "javascript: void(0);"}
         %span Work
         %span Experience
-      %a{"data-target" => "private", href: "javascript: void(0);"}
+      %a{"data-target" => "personal", href: "javascript: void(0);"}
         %span
           Private
           %span
@@ -28,28 +33,31 @@
     %main.clearfix
       %section#about.active
         %article
-          %h1
-          %h2
-          %br/
+          %h1.headline
+          %h2.subhead
+          .content
         %img.full-bg-image{alt: "Image about", height: "100%", src: "http://lorempixel.com/1000/1000/abstract?1", width: "100%"}/
-      %section#work-experience
+      %section#work
         %article
-          %h1 Work Experience 444
-          %h2 ads adadadsasd
-          %br/
-          %p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+          %h1.headline
+          %h2.subhead
+          .content
         %img.full-bg-image{alt: "Image work experience", height: "100%", src: "http://lorempixel.com/1000/1000/abstract?2", width: "100%"}/
-      %section#private
+      %section#personal
         %article
-          %h1 Private Stuff
-          %br/
-          %p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+          %h1.headline
+          %h2.subhead
+          .content
         %img.full-bg-image{alt: "Image private", height: "100%", src: "http://lorempixel.com/1000/1000/abstract?3", width: "100%"}/
       %section#contact
         %article
-          %h1 Contact
-          %br/
-          %p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero
+          %h1.headline
+          %h2.subhead
+          .content
+          %form
+            %label.message
+            %br/
+            %textarea
         %img.full-bg-image{alt: "Image contact", height: "100%", src: "http://lorempixel.com/1000/1000/abstract?4", width: "100%"}/
     /
       <nav class="nav-right">
@@ -70,7 +78,8 @@
       	} else {
       		// Develoment
       		document.write(
-      			'<script src="js/libs/jquery.js"><\/script>' +
+            '<script src="js/libs/jquery.js"><\/script>' +
+      			'<script src="js/section-data.js"><\/script>' +
       			'<script src="js/main.js"><\/script>'
       		);
       	}

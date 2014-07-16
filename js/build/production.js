@@ -9189,7 +9189,31 @@ return jQuery;
 
 }));
 
+var sectionData = {
+    en: {
+        about: {
+            h1: 'Jan-Christoph Sievers',
+            h2: 'Senior Frontend Developer',
+            content: '<p>' +
+                       'Huhu' + 
+                     '</p>'
+        },
+        work: {
+
+        },
+        personal: {
+
+        },
+        contact: {
+
+        },
+    },
+    de: {
+
+    }
+};
 var jcsHomepage = {
+	
 	navigation: function() {
 		$('nav').find('a').on('click', function() {
 			var mainSection = $('main'),
@@ -9199,9 +9223,9 @@ var jcsHomepage = {
 			// Scroll to position
 			if (targetLink === 'about') {
 				targetPos = 0;
-			} else if (targetLink === 'work-experience') {
+			} else if (targetLink === 'work') {
 				targetPos = 780;
-			} else if (targetLink === 'private') {
+			} else if (targetLink === 'personal') {
 				targetPos = 1560;
 			} else if (targetLink === 'contact') {
 				targetPos = 2340;
@@ -9214,8 +9238,15 @@ var jcsHomepage = {
 			mainSection.find('#' + targetLink).addClass('active');
 		});
 	},
+	
 	showContent: function(language) {
 		console.log('Show content in ' + language + '.');
+
+		// Loop to section data ...
+
+		console.log(sectionData);
+
+
 
 		$.each($('main section'), function() {
 			var that = $(this); 
@@ -9225,14 +9256,22 @@ var jcsHomepage = {
 					.text('Jan-Christoph Sievers');
 				that.find('h2')
 					.text('Senior Frontend Developer');
-			
+			} else if (that.attr('id') === 'work') {
+				console.log('work');
+				that.find('h1')
+					.text('Work Experience 555');
+			} else if (that.attr('id') === 'personal') {
+				console.log('personal');
+			} else if (that.attr('id') === 'contact') {
+				console.log('contact');
 			}
 		});
 	}
+
 };
 
 
 $(document).ready(function() {
-	jcsHomepage.showContent('english');	
+	jcsHomepage.showContent('en');	// en = English // de = German
 	jcsHomepage.navigation();
 });
