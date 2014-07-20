@@ -9191,28 +9191,28 @@ return jQuery;
 
 var sectionData = {
     en: {
-        about: {
+        section01: {
             headline: 'Jan-Christoph Sievers',
             subhead: 'Senior Frontend Developer',
             content: '<p>' +
                        'Huhu' + 
                      '</p>'
         },
-        work: {
+        section02: {
             headline: 'Work Experience',
             subhead: 'Lorem ipsum 2',
             content: '<p>' +
                        'Huhu 2' + 
                      '</p>'
         },
-        personal: {
+        section03: {
             headline: 'Personal stuff',
             subhead: 'Lorem ipsum 3',
             content: '<p>' +
                        'Huhu 3' + 
                      '</p>'
         },
-        contact: {
+        section04: {
             headline: 'Contact',
             subhead: 'Lorem ipsum 4',
             content: '<p>' +
@@ -9235,28 +9235,28 @@ var sectionData = {
     */
 
     de: {
-        about: {
+        section01: {
             headline: 'Jan-Christoph Sievers',
             subhead: 'Senior Frontend Developer',
             content: '<p>' +
                        'Huhu german' + 
                      '</p>'
         },
-        work: {
+        section02: {
             headline: 'Berufserfahrung',
             subhead: 'Lorem ipsum 2',
             content: '<p>' +
                        'Mehrj\u00E4hrige Berufserfahrung in Online-Agenturen als Festangestellter und Freelancer. Professionellen Umgang mit HTML CSS (und den Frameworks HAML und SASS)' + 
                      '</p>'
         },
-        personal: {
+        section03: {
             headline: 'Pers\u00F6nliches',
             subhead: 'Lorem ipsum 3',
             content: '<p>' +
                        'Huhu 3' + 
                      '</p>'
         },
-        contact: {
+        section04: {
             headline: 'Kontakt',
             subhead: 'Lorem ipsum 4',
             content: '<p>' +
@@ -9273,13 +9273,13 @@ var jcsHomepage = {
 				targetPos,
 				targetLink = $(this).attr('data-target');
 			// Scroll to position
-			if (targetLink === 'about') {
+			if (targetLink === 'section01') {
 				targetPos = 0;
-			} else if (targetLink === 'work') {
+			} else if (targetLink === 'section02') {
 				targetPos = 780;
-			} else if (targetLink === 'personal') {
+			} else if (targetLink === 'section03') {
 				targetPos = 1560;
-			} else if (targetLink === 'contact') {
+			} else if (targetLink === 'section04') {
 				targetPos = 2340;
 			}
 			window.scrollTo(targetPos, 0);
