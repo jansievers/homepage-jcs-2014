@@ -115,6 +115,12 @@ nav
 // Content sections                //
 /////////////////////////////////////
 
+@keyframes fade-section-image
+  from
+    opacity: 0
+  to
+    opacity: 1
+
 section
   color: DarkSlateGray
   width: 740px
@@ -135,12 +141,13 @@ section
     padding: 2% 4%
     z-index: 2
   .full-bg-image
-    display: none
+    opacity: 0
   &.active
     color: white!important
     text-shadow: 1px 1px 1px black
     .full-bg-image
-      display: block
+      animation: fade-section-image 1s
+      opacity: 1
   &:nth-child(1)
     color: $color-front-section-1
     background-color: $color-back-section-1
