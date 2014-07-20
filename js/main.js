@@ -5,13 +5,13 @@ var jcsHomepage = {
 				targetPos,
 				targetLink = $(this).attr('data-target');
 			// Scroll to position
-			if (targetLink === 'about') {
+			if (targetLink === 'section01') {
 				targetPos = 0;
-			} else if (targetLink === 'work') {
+			} else if (targetLink === 'section02') {
 				targetPos = 780;
-			} else if (targetLink === 'personal') {
+			} else if (targetLink === 'section03') {
 				targetPos = 1560;
-			} else if (targetLink === 'contact') {
+			} else if (targetLink === 'section04') {
 				targetPos = 2340;
 			}
 			window.scrollTo(targetPos, 0);
@@ -39,6 +39,8 @@ var jcsHomepage = {
 };
 
 $(document).ready(function() {
-	jcsHomepage.showContent('de');	// en = English // de = German
+    var documentLanguage = $('html').attr('lang');
+
+	jcsHomepage.showContent(documentLanguage);	// en = English // de = German
 	jcsHomepage.navigation();
 });

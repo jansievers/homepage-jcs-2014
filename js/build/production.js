@@ -9192,34 +9192,86 @@ return jQuery;
 var sectionData = {
     en: {
         about: {
-            h1: 'Jan-Christoph Sievers',
-            h2: 'Senior Frontend Developer',
+            headline: 'Jan-Christoph Sievers',
+            subhead: 'Senior Frontend Developer',
             content: '<p>' +
                        'Huhu' + 
                      '</p>'
         },
         work: {
-
+            headline: 'Work Experience',
+            subhead: 'Lorem ipsum 2',
+            content: '<p>' +
+                       'Huhu 2' + 
+                     '</p>'
         },
         personal: {
-
+            headline: 'Personal stuff',
+            subhead: 'Lorem ipsum 3',
+            content: '<p>' +
+                       'Huhu 3' + 
+                     '</p>'
         },
         contact: {
-
-        },
+            headline: 'Contact',
+            subhead: 'Lorem ipsum 4',
+            content: '<p>' +
+                       'Huhu 4' + 
+                     '</p>',
+            message: 'Please fill in...' 
+        }
     },
-    de: {
 
+    // http://www.ulimatbach.de/links/unicode_entities.html
+    /*
+    HTML-Entität     Zeichen     Dezimal     Hex-Unicode 
+    &Auml;           Ä           &#196;      \u00C4
+    &auml;           ä           &#228;      \u00E4
+    &Ouml;           Ö           &#214;      \u00D6
+    &ouml;           ö           &#246;      \u00F6
+    &Uuml;           Ü           &#220;      \u00DC
+    &uuml;           ü           &#252;      \u00FC
+    &szlig;          ß           &#223;      \u00DF
+    */
+
+    de: {
+        about: {
+            headline: 'Jan-Christoph Sievers',
+            subhead: 'Senior Frontend Developer',
+            content: '<p>' +
+                       'Huhu german' + 
+                     '</p>'
+        },
+        work: {
+            headline: 'Berufserfahrung',
+            subhead: 'Lorem ipsum 2',
+            content: '<p>' +
+                       'Mehrj\u00E4hrige Berufserfahrung in Online-Agenturen als Festangestellter und Freelancer. Professionellen Umgang mit HTML CSS (und den Frameworks HAML und SASS)' + 
+                     '</p>'
+        },
+        personal: {
+            headline: 'Pers\u00F6nliches',
+            subhead: 'Lorem ipsum 3',
+            content: '<p>' +
+                       'Huhu 3' + 
+                     '</p>'
+        },
+        contact: {
+            headline: 'Kontakt',
+            subhead: 'Lorem ipsum 4',
+            content: '<p>' +
+                       'Huhu 4' + 
+                     '</p>',
+            message: 'Bitte ausf\u00FCllen...' 
+        }
     }
 };
 var jcsHomepage = {
-	
 	navigation: function() {
 		$('nav').find('a').on('click', function() {
 			var mainSection = $('main'),
 				targetPos,
 				targetLink = $(this).attr('data-target');
-
 			// Scroll to position
 			if (targetLink === 'about') {
 				targetPos = 0;
@@ -9238,40 +9290,25 @@ var jcsHomepage = {
 			mainSection.find('#' + targetLink).addClass('active');
 		});
 	},
-	
 	showContent: function(language) {
 		console.log('Show content in ' + language + '.');
-
 		// Loop to section data ...
-
-		console.log(sectionData);
-
-
-
-		$.each($('main section'), function() {
-			var that = $(this); 
-			if (that.attr('id') === 'about') {
-				console.log('about section');
-				that.find('h1')
-					.text('Jan-Christoph Sievers');
-				that.find('h2')
-					.text('Senior Frontend Developer');
-			} else if (that.attr('id') === 'work') {
-				console.log('work');
-				that.find('h1')
-					.text('Work Experience 555');
-			} else if (that.attr('id') === 'personal') {
-				console.log('personal');
-			} else if (that.attr('id') === 'contact') {
-				console.log('contact');
-			}
+		var contentSection;
+		$.each(sectionData[language], function(index, value) {
+			// Get id for section select
+			contentSection = $('#' + index);
+			// Get an fill content sections elements
+			$.each(value, function(index, value) {
+				// Find content class and add content
+				contentSection.find('.' + index).html(value); 
+			});
 		});
 	}
-
 };
 
-
 $(document).ready(function() {
-	jcsHomepage.showContent('en');	// en = English // de = German
+    var documentLanguage = $('html').attr('lang');
+
+	jcsHomepage.showContent(documentLanguage);	// en = English // de = German
 	jcsHomepage.navigation();
 });

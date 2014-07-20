@@ -1,7 +1,11 @@
 !!!
-%html{lang: "en"}
+%html{lang: "de"}
   %head
-    %title Homepage of Jan-Christoph Sievers - Senior Frontend Developer - Hamburg - Germany
+    %title Jan-Christoph Sievers - Senior Frontend Developer - Hamburg - Germany
+    
+    / Only for the test-version!
+    %meta{name: "robots", content: "noindex"}
+
     %meta{content: "text/html; charset=US-ASCII", "http-equiv" => "content-type"}/
     %link{href: "http://fonts.googleapis.com/css?family=Dosis:500,700,200", rel: "stylesheet", type: "text/css"}/
     %link{href: "css/build/main.css", media: "screen, projection", rel: "stylesheet", type: "text/css"}/
@@ -16,40 +20,40 @@
 
   %body
     %nav.nav-left
-      %a{"data-target" => "about", href: "javascript: void(0);"}
+      %a{"data-target" => "section01", href: "javascript: void(0);"}
         %span About
-      %a{"data-target" => "work", href: "javascript: void(0);"}
+      %a{"data-target" => "section02", href: "javascript: void(0);"}
         %span Work
         %span Experience
-      %a{"data-target" => "personal", href: "javascript: void(0);"}
+      %a{"data-target" => "section03", href: "javascript: void(0);"}
         %span
           Private
           %span
-      %a{"data-target" => "contact", href: "javascript: void(0);"}
+      %a{"data-target" => "section04", href: "javascript: void(0);"}
         %span
           Contact
           %span
     
     %main.clearfix
-      %section#about.active
+      %section#section01.active
         %article
           %h1.headline
           %h2.subhead
           .content
-        %img.full-bg-image{alt: "Image about", height: "100%", src: "http://lorempixel.com/1000/1000/abstract?1", width: "100%"}/
-      %section#work
+        %img.full-bg-image{alt: "Image about", height: "100%", src: "images/dummy-1.jpg", width: "100%"}/
+      %section#section02
         %article
           %h1.headline
           %h2.subhead
           .content
-        %img.full-bg-image{alt: "Image work experience", height: "100%", src: "http://lorempixel.com/1000/1000/abstract?2", width: "100%"}/
-      %section#personal
+        %img.full-bg-image{alt: "Image work experience", height: "100%", src: "images/dummy-2.jpg", width: "100%"}/
+      %section#section03
         %article
           %h1.headline
           %h2.subhead
           .content
-        %img.full-bg-image{alt: "Image private", height: "100%", src: "http://lorempixel.com/1000/1000/abstract?3", width: "100%"}/
-      %section#contact
+        %img.full-bg-image{alt: "Image private", height: "100%", src: "images/dummy-3.jpg", width: "100%"}/
+      %section#section04
         %article
           %h1.headline
           %h2.subhead
@@ -58,7 +62,7 @@
             %label.message
             %br/
             %textarea
-        %img.full-bg-image{alt: "Image contact", height: "100%", src: "http://lorempixel.com/1000/1000/abstract?4", width: "100%"}/
+        %img.full-bg-image{alt: "Image contact", height: "100%", src: "images/dummy-4.jpg", width: "100%"}/
     /
       <nav class="nav-right">
       <a href="javascript: void(0);" data-target="about">
