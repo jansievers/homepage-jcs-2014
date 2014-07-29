@@ -9267,27 +9267,33 @@ var sectionData = {
     }
 };
 var jcsHomepage = {
+	breakPoints: [0, 780, 1560, 2340, 3120],
+
 	navigation: function() {
 		$('nav').find('a').on('click', function() {
 			var mainSection = $('main'),
-				targetPos,
+				targetXPos,
 				targetLink = $(this).attr('data-target');
 			// Scroll to position
 			if (targetLink === 'section01') {
-				targetPos = 0;
+				targetXPos = jcsHomepage.breakPoints[0];
 			} else if (targetLink === 'section02') {
-				targetPos = 780;
+				targetXPos = jcsHomepage.breakPoints[1];
 			} else if (targetLink === 'section03') {
-				targetPos = 1560;
+				targetXPos = jcsHomepage.breakPoints[2];
 			} else if (targetLink === 'section04') {
-				targetPos = 2340;
+				targetXPos = jcsHomepage.breakPoints[3];
 			}
-			window.scrollTo(targetPos, 0);
-
-			// Reset active sections
-			mainSection.find('.active').removeClass('active');
-			// Set section active
-			mainSection.find('#' + targetLink).addClass('active');
+			//window.scrollTo(targetPos, 0);
+			$('html').animate({
+		        scrollLeft: targetXPos
+		    }, 1000, function() {
+		    	console.log('Anim ready');
+		    	// Reset active sections
+				//mainSection.find('.active').removeClass('active');
+				// Set section active
+				//mainSection.find('#' + targetLink).addClass('active');
+		    });
 		});
 	},
 	showContent: function(language) {
@@ -9303,6 +9309,31 @@ var jcsHomepage = {
 				contentSection.find('.' + index).html(value); 
 			});
 		});
+	},
+	watchScrollPosition: function(w) {
+		var currentScrollPos,
+		    mainSection = $('main'),
+		    offset = -100;
+		w.setInterval(function() {
+			currentScrollPos = $('html').scrollLeft();
+			//console.log(currentScrollPos);
+			mainSection.find('.active').removeClass('active');
+
+			if (currentScrollPos < (jcsHomepage.breakPoints[1] + offset)) {
+				console.log('1. Section');
+				mainSection.find('#section01').addClass('active');
+			} else if (currentScrollPos < (jcsHomepage.breakPoints[2] + offset)) {
+				console.log('2. Section');
+				mainSection.find('#section02').addClass('active');
+			} else if (currentScrollPos < (jcsHomepage.breakPoints[3] + offset)) {
+				console.log('3. Section');
+				mainSection.find('#section03').addClass('active');
+			} else if (currentScrollPos < (jcsHomepage.breakPoints[4] + offset)) {
+				console.log('4. Section');
+				mainSection.find('#section04').addClass('active');
+			}
+		}, 20);
+
 	}
 };
 
@@ -9311,4 +9342,5 @@ $(document).ready(function() {
 
 	jcsHomepage.showContent(documentLanguage);	// en = English // de = German
 	jcsHomepage.navigation();
+	jcsHomepage.watchScrollPosition(window);
 });
