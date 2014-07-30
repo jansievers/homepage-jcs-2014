@@ -29,16 +29,20 @@ var jcsHomepage = {
 		});
 	},
 	showContent: function(language) {
-		console.log('Show content in ' + language + '.');
-		// Loop to section data ...
-		var contentSection;
-		$.each(sectionData[language], function(index, value) {
-			// Get id for section select
-			contentSection = $('#' + index);
-			// Get an fill content sections elements
-			$.each(value, function(index, value) {
-				// Find content class and add content
-				contentSection.find('.' + index).html(value); 
+		var contentUrl = 'content/section-data-' + language + '.json',
+			count = 0,
+			contentSection;
+
+		$.getJSON(contentUrl, function(data) {
+			
+			$.each( data, function( index, value ) {
+				contentSection = $('#' + index);
+				$.each(value, function( index, value ) {
+					$.each(value, function( index, value ) {
+						contentSection.find('.' + index).html(value); 
+					});		
+				});
+				
 			});
 		});
 	},
@@ -46,7 +50,7 @@ var jcsHomepage = {
 		var currentScrollPos,
 		    mainSection = $('main'),
 		    offset = -100,
-		    refreshRate = 50;  // Frame update rate in ms
+		    refreshRate = 200;  // Frame update rate in ms
 		w.setInterval(function() {
 			if ( $('body').scrollLeft() === 0 ) {
 				currentScrollPos = $('html').scrollLeft(); // FF

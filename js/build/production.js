@@ -9285,7 +9285,7 @@ var jcsHomepage = {
 				targetXPos = jcsHomepage.breakPoints[3];
 			}
 			//window.scrollTo(targetPos, 0);
-			$('html').animate({
+			$('html, body').animate({
 		        scrollLeft: targetXPos
 		    }, 1000, function() {
 		    	console.log('Anim ready');
@@ -9297,7 +9297,27 @@ var jcsHomepage = {
 		});
 	},
 	showContent: function(language) {
-		console.log('Show content in ' + language + '.');
+		var contentUrl = 'content/section-data-' + language + '.json',
+			count = 0;
+
+		$.getJSON(contentUrl, function(data) {
+			
+			$.each( data, function( index, value ) {
+				items.push( "<li id='" + key + "'>" + val + "</li>" );
+			});
+
+			
+			/*
+			$.each( data, function( key, val ) {
+				items.push( "<li id='" + key + "'>" + val + "</li>" );
+			});
+			$( "<ul/>", {
+				"class": "my-new-list",
+				html: items.join( "" )
+			}).appendTo( "body" );
+			*/
+		});
+
 		// Loop to section data ...
 		var contentSection;
 		$.each(sectionData[language], function(index, value) {
@@ -9313,26 +9333,35 @@ var jcsHomepage = {
 	watchScrollPosition: function(w) {
 		var currentScrollPos,
 		    mainSection = $('main'),
-		    offset = -100;
+		    offset = -100,
+		    refreshRate = 5000;  // Frame update rate in ms
 		w.setInterval(function() {
-			currentScrollPos = $('html').scrollLeft();
-			//console.log(currentScrollPos);
+			if ( $('body').scrollLeft() === 0 ) {
+				currentScrollPos = $('html').scrollLeft(); // FF
+			} else {
+				currentScrollPos = $('body').scrollLeft(); // Chrome
+			}
+			
 			mainSection.find('.active').removeClass('active');
 
 			if (currentScrollPos < (jcsHomepage.breakPoints[1] + offset)) {
 				console.log('1. Section');
 				mainSection.find('#section01').addClass('active');
+
 			} else if (currentScrollPos < (jcsHomepage.breakPoints[2] + offset)) {
 				console.log('2. Section');
 				mainSection.find('#section02').addClass('active');
+
 			} else if (currentScrollPos < (jcsHomepage.breakPoints[3] + offset)) {
 				console.log('3. Section');
 				mainSection.find('#section03').addClass('active');
+
 			} else if (currentScrollPos < (jcsHomepage.breakPoints[4] + offset)) {
 				console.log('4. Section');
 				mainSection.find('#section04').addClass('active');
+
 			}
-		}, 20);
+		}, refreshRate); // Intervall lenght
 
 	}
 };

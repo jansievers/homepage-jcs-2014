@@ -1,0 +1,31 @@
+{
+   "section01": [
+      {
+         "headline" : "Jan-Christoph Sievers",
+         "subhead"  : "Senior Frontend Developer",
+         "content"  : "<p>Huhu german</p>"
+      }
+    ],
+    "section02": [
+      {
+         "headline" : "Berufserfahrung",
+         "subhead"  : "Mehrjährige Berufserfahrung in Online-Agenturen als Festangestellter und Freelancer. Professionellen Umgang mit HTML CSS (und den Frameworks HAML und SASS)",
+         "content"  : "<p>Huhu 2</p>"
+      }
+    ],
+    "section03": [
+      {
+         "headline" : "Persönliches",
+         "subhead"  : "Lorem ipsum 3",
+         "content"  : "<p>Huhu 3</p>"
+      }
+    ],
+    "section04": [
+      {
+         "headline" : "Kontakt",
+         "subhead"  : "Lorem ipsum 4",
+         "content"  : "<p>Huhu 4</p>",
+         "message"  : "Bitte ausfüllen..."
+      }
+   ]
+}
