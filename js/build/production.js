@@ -9189,83 +9189,6 @@ return jQuery;
 
 }));
 
-var sectionData = {
-    en: {
-        section01: {
-            headline: 'Jan-Christoph Sievers',
-            subhead: 'Senior Frontend Developer',
-            content: '<p>' +
-                       'Huhu' + 
-                     '</p>'
-        },
-        section02: {
-            headline: 'Work Experience',
-            subhead: 'Lorem ipsum 2',
-            content: '<p>' +
-                       'Huhu 2' + 
-                     '</p>'
-        },
-        section03: {
-            headline: 'Personal stuff',
-            subhead: 'Lorem ipsum 3',
-            content: '<p>' +
-                       'Huhu 3' + 
-                     '</p>'
-        },
-        section04: {
-            headline: 'Contact',
-            subhead: 'Lorem ipsum 4',
-            content: '<p>' +
-                       'Huhu 4' + 
-                     '</p>',
-            message: 'Please fill in...' 
-        }
-    },
-
-    // http://www.ulimatbach.de/links/unicode_entities.html
-    /*
-    HTML-Entität     Zeichen     Dezimal     Hex-Unicode 
-    &Auml;           Ä           &#196;      \u00C4
-    &auml;           ä           &#228;      \u00E4
-    &Ouml;           Ö           &#214;      \u00D6
-    &ouml;           ö           &#246;      \u00F6
-    &Uuml;           Ü           &#220;      \u00DC
-    &uuml;           ü           &#252;      \u00FC
-    &szlig;          ß           &#223;      \u00DF
-    */
-
-    de: {
-        section01: {
-            headline: 'Jan-Christoph Sievers',
-            subhead: 'Senior Frontend Developer',
-            content: '<p>' +
-                       'Huhu german' + 
-                     '</p>'
-        },
-        section02: {
-            headline: 'Berufserfahrung',
-            subhead: 'Lorem ipsum 2',
-            content: '<p>' +
-                       'Mehrj\u00E4hrige Berufserfahrung in Online-Agenturen als Festangestellter und Freelancer. Professionellen Umgang mit HTML CSS (und den Frameworks HAML und SASS)' + 
-                     '</p>'
-        },
-        section03: {
-            headline: 'Pers\u00F6nliches',
-            subhead: 'Lorem ipsum 3',
-            content: '<p>' +
-                       'Huhu 3' + 
-                     '</p>'
-        },
-        section04: {
-            headline: 'Kontakt',
-            subhead: 'Lorem ipsum 4',
-            content: '<p>' +
-                       'Huhu 4' + 
-                     '</p>',
-            message: 'Bitte ausf\u00FCllen...' 
-        }
-    }
-};
 var jcsHomepage = {
 	breakPoints: [0, 780, 1560, 2340, 3120],
 
@@ -9298,35 +9221,19 @@ var jcsHomepage = {
 	},
 	showContent: function(language) {
 		var contentUrl = 'content/section-data-' + language + '.json',
-			count = 0;
+			count = 0,
+			contentSection;
 
 		$.getJSON(contentUrl, function(data) {
 			
 			$.each( data, function( index, value ) {
-				items.push( "<li id='" + key + "'>" + val + "</li>" );
-			});
-
-			
-			/*
-			$.each( data, function( key, val ) {
-				items.push( "<li id='" + key + "'>" + val + "</li>" );
-			});
-			$( "<ul/>", {
-				"class": "my-new-list",
-				html: items.join( "" )
-			}).appendTo( "body" );
-			*/
-		});
-
-		// Loop to section data ...
-		var contentSection;
-		$.each(sectionData[language], function(index, value) {
-			// Get id for section select
-			contentSection = $('#' + index);
-			// Get an fill content sections elements
-			$.each(value, function(index, value) {
-				// Find content class and add content
-				contentSection.find('.' + index).html(value); 
+				contentSection = $('#' + index);
+				$.each(value, function( index, value ) {
+					$.each(value, function( index, value ) {
+						contentSection.find('.' + index).html(value); 
+					});		
+				});
+				
 			});
 		});
 	},
@@ -9334,7 +9241,7 @@ var jcsHomepage = {
 		var currentScrollPos,
 		    mainSection = $('main'),
 		    offset = -100,
-		    refreshRate = 5000;  // Frame update rate in ms
+		    refreshRate = 200;  // Frame update rate in ms
 		w.setInterval(function() {
 			if ( $('body').scrollLeft() === 0 ) {
 				currentScrollPos = $('html').scrollLeft(); // FF

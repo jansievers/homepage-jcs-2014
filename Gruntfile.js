@@ -36,7 +36,7 @@ module.exports = function(grunt) {
         },
         watch: {
             haml: {
-                files: ['index.haml'],
+                files: ['*.haml'],
                 tasks: ['haml'],
                 options: {
                     spawn: false
@@ -64,6 +64,18 @@ module.exports = function(grunt) {
         },
         jshint: {
             all: ['Gruntfile.js', 'js/section-data.js', 'js/main.js']
+        },
+        'ftp-deploy': {
+          build: {
+            auth: {
+              host: 'www.jan-christoph-sievers.de',
+              port: 21,
+              authKey: 'key1'
+            },
+            src: '/var/www/html/homepage-jcs-2014',
+            dest: '/jcs-new',
+            exclusions: ['.sass-cache', 'node_modules', '.ftppass', '.git', 'package.json', 'validation-report.json', 'validation-status.json']
+          }
         }
     });
 
@@ -75,8 +87,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-html-validation');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-ftp-deploy');
+
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask('default', ['haml', 'validation', 'jshint', 'sass', 'concat', 'uglify']);
  
     grunt.registerTask('dev', ['watch']);
+
+    grunt.registerTask('deploy', ['ftp-deploy']);
 };
