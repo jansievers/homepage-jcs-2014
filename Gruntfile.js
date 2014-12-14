@@ -22,7 +22,7 @@ module.exports = function(grunt) {
         concat: {
             dist: {
                 src: [
-                    'js/libs/*.js', // All JS in the libs folder
+                    'js/libs/jquery.js', // All JS in the libs folder
                     'js/main.js'  // This specific file
                 ],
                 dest: 'js/build/production.js',
