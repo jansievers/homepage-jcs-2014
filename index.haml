@@ -1,5 +1,5 @@
 !!!
-%html{lang: "en"}
+%html{lang: "de"}
   %head
     %title Jan-Christoph Sievers - Senior Frontend Developer - Hamburg - Germany
     
@@ -7,7 +7,6 @@
     %meta{name: "robots", content: "noindex"}
 
     %meta{content: "text/html; charset=US-ASCII", "http-equiv" => "content-type"}/
-    %link{href: "http://fonts.googleapis.com/css?family=Dosis:500,700,200", rel: "stylesheet", type: "text/css"}/
     %link{href: "css/build/main.css", media: "screen, projection", rel: "stylesheet", type: "text/css"}/
   / https://www.codefellows.org/blog/complete-list-of-javascript-tools
   
@@ -20,6 +19,12 @@
 
   %body
     %nav.nav-left
+      %button{"data-lang" => "en", href: "#"}
+        EN
+      |
+      %button{"data-lang" => "de", href: "#"}
+        DE
+      
       %a{"data-target" => "section01", href: "#"}
         %span About
       %a{"data-target" => "section02", href: "#"}
@@ -87,3 +92,6 @@
       		);
       	}
       })(document);
+
+    // Fonts to bottom to avoid blocking
+    %link{href: "http://fonts.googleapis.com/css?family=Dosis:500,700,200", rel: "stylesheet", type: "text/css"}/

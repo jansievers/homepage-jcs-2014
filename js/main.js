@@ -2,6 +2,7 @@ var jcsHomepage = {
 	breakPoints: [0, 780, 1560, 2340, 3120],
 
 	navigation: function() {
+		// Main navigation
 		$('nav').find('a').on('click', function() {
 			var mainSection = $('main'),
 				targetXPos,
@@ -27,6 +28,14 @@ var jcsHomepage = {
 				//mainSection.find('#' + targetLink).addClass('active');
 		    });
 		});
+
+		// Language switcher
+		$('nav').find('button').on('click', function() {
+			console.log($(this));
+			$('html').attr('lang', $(this).attr('data-lang'));
+			jcsHomepage.showContent($('html').attr('lang'));
+
+		});			
 	},
 	showContent: function(language) {
 		var contentUrl = 'content/section-data-' + language + '.json',
@@ -46,6 +55,7 @@ var jcsHomepage = {
 			});
 		});
 	},
+
 	watchScrollPosition: function(w) {
 		var currentScrollPos,
 		    mainSection = $('main'),
@@ -84,7 +94,6 @@ var jcsHomepage = {
 
 $(document).ready(function() {
     var documentLanguage = $('html').attr('lang');
-
 	jcsHomepage.showContent(documentLanguage);	// en = English // de = German
 	jcsHomepage.navigation();
 	jcsHomepage.watchScrollPosition(window);

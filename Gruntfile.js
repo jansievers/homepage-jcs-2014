@@ -34,6 +34,19 @@ module.exports = function(grunt) {
                 dest: 'js/build/production.min.js'
             }
         },
+
+        htmlmin: {                                     // Task
+            dist: {                                      // Target
+              options: {                                 // Target options
+                removeComments: true,
+                collapseWhitespace: true
+              },
+              files: {                                   // Dictionary of files
+                'index.html': 'index.html',     // 'destination': 'source'
+              }
+            },
+        },            
+
         watch: {
             haml: {
                 files: ['*.haml'],
@@ -88,9 +101,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-html-validation');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-ftp-deploy');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    grunt.loadNpmTasks('grunt-contrib-jasmine');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['haml', 'validation', 'jshint', 'sass', 'concat', 'uglify']);
+    grunt.registerTask('default', ['haml', 'validation', 'htmlmin', 'jshint', 'sass', 'concat', 'uglify']);
  
     grunt.registerTask('dev', ['watch']);
 
